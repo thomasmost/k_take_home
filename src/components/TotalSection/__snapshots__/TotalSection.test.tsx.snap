@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TotalSection renders 1`] = `
+Array [
+  <style
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": ".css-u8h7cj{background-color:white;border:1px solid lightgray;border-radius:10px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;padding:20px;-webkit-box-pack:justify;-webkit-justify-content:space-between;justify-content:space-between;}",
+      }
+    }
+    data-emotion="css u8h7cj"
+  />,
+  <div
+    className="css-u8h7cj"
+  >
+    <div>
+      <style
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": ".css-77dcaw{font-size:11px;margin-bottom:6px;display:block;font-weight:500;}",
+          }
+        }
+        data-emotion="css 77dcaw"
+      />
+      <label
+        className="css-77dcaw"
+      >
+        Total Balance
+      </label>
+      <style
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": ".css-end85d{font-size:20px;}",
+          }
+        }
+        data-emotion="css end85d"
+      />
+      <div
+        className="css-end85d"
+      >
+        $
+        200.00
+      </div>
+    </div>
+    <style
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": ".css-1b534kz{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}.css-1b534kz >div:first-child{padding-right:30px;border-right:1px solid lightgray;}.css-1b534kz >div:last-child{padding-left:30px;}",
+        }
+      }
+      data-emotion="css 1b534kz"
+    />
+    <div
+      className="css-1b534kz"
+    >
+      <div>
+        <label
+          className="css-77dcaw"
+        >
+          Total Available
+        </label>
+        <style
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": ".css-mr3j8u{font-size:14px;}",
+            }
+          }
+          data-emotion="css mr3j8u"
+        />
+        <div
+          className="css-mr3j8u"
+        >
+          $
+          110.00
+        </div>
+      </div>
+      <div>
+        <label
+          className="css-77dcaw"
+        >
+          Total Locked
+        </label>
+        <div
+          className="css-mr3j8u"
+        >
+          $
+          90.00
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;

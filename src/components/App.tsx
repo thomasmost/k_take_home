@@ -1,17 +1,26 @@
+import styled from "@emotion/styled";
 import * as React from "react";
 import { hot } from "react-hot-loader";
+import { TotalSection } from "./TotalSection/TotalSection";
 
-const reactLogo = require("./../assets/img/react_logo.svg");
-import "./../assets/scss/App.scss";
+// const reactLogo = require("./../assets/img/react_logo.svg");
 
+const Main = styled.main`
+  background-color: #faf9f8;
+  font-family: Inter, sans-serif;
+`;
+
+const ContentContainer = styled.div`
+  padding: 50px;
+`;
 class App extends React.Component<Record<string, unknown>, undefined> {
   public render() {
     return (
-      <div className="app">
-        <h1>Hello World!</h1>
-        <p>Foo to the barz</p>
-        <img src={reactLogo.default} height="480" />
-      </div>
+      <Main className="app">
+        <ContentContainer>
+          <TotalSection availableCents={11000} lockedCents={9000} balanceCents={20000} />
+        </ContentContainer>
+      </Main>
     );
   }
 }
