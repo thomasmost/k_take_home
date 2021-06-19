@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import * as React from 'react';
-import { toMajorUnits } from '../../services/currency.svc';
+import { toDollarsFromCents } from '../../services/currency.svc';
 
 interface ITotalSectionProps {
   // placeholder, remove or replace with real props
@@ -53,16 +53,16 @@ export const TotalSection: React.FC<ITotalSectionProps> = ({
     <PillLayout>
       <div>
         <Label>Total Balance</Label>
-        <Total>${toMajorUnits(balanceCents)}</Total>
+        <Total>${toDollarsFromCents(balanceCents)}</Total>
       </div>
         <SubTotals>
         <div>
           <Label>Total Available</Label>
-          <SubTotal>${toMajorUnits(availableCents)}</SubTotal>
+          <SubTotal>${toDollarsFromCents(availableCents)}</SubTotal>
         </div>
         <div>
           <Label>Total Locked</Label>
-          <SubTotal>${toMajorUnits(lockedCents)}</SubTotal>
+          <SubTotal>${toDollarsFromCents(lockedCents)}</SubTotal>
         </div>
       </SubTotals>
     </PillLayout>

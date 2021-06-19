@@ -34,7 +34,7 @@ export const ${name}: React.FC<${propsName}> = (props) => {
 const testSrc = `import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
-import { ${name} } from '.';
+import { ${name} } from './${name}';
 
 test('${name} renders', () => {
   const component = renderer.create(

@@ -24,17 +24,16 @@ export abstract class ApiSvc {
       return;
     }
     const data = await response.json();
-    alert(JSON.stringify(data));
     return {
       data,
     };
   }
 
   public static async getAccount() {
-    return this.get('auth/accounts/kava1vlpsrmdyuywvaqrv7rx6xga224sqfwz3fyfhwq');
+    return this.get<ApiResponse<AccountResult>>('auth/accounts/kava1vlpsrmdyuywvaqrv7rx6xga224sqfwz3fyfhwq');
   }
 
   public static async getPrices() {
-    return this.get('pricefeed/prices');
+    return this.get<ApiResponse<Price[]>>('pricefeed/prices');
   }
 }
