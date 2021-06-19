@@ -1,6 +1,8 @@
 import styled from "@emotion/styled";
 import * as React from "react";
+import { useEffect } from "react";
 import { hot } from "react-hot-loader";
+import { ApiSvc } from "../services/api.svc";
 import { TotalSection } from "./TotalSection/TotalSection";
 
 // const reactLogo = require("./../assets/img/react_logo.svg");
@@ -13,8 +15,10 @@ const Main = styled.main`
 const ContentContainer = styled.div`
   padding: 50px;
 `;
-class App extends React.Component<Record<string, unknown>, undefined> {
-  public render() {
+const App: React.FC = () => {
+  useEffect(() => {
+    ApiSvc.getAccount();
+  }, [])
     return (
       <Main className="app">
         <ContentContainer>
@@ -22,7 +26,6 @@ class App extends React.Component<Record<string, unknown>, undefined> {
         </ContentContainer>
       </Main>
     );
-  }
 }
 
 declare let module: Record<string, unknown>;
