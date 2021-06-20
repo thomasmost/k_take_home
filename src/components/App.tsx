@@ -3,6 +3,7 @@ import * as React from "react";
 import { useEffect, useState } from "react";
 import { hot } from "react-hot-loader";
 import { ApiSvc } from "../services/api.svc";
+import { processAccount } from "../services/data.svc";
 import { PortfolioSection } from "./PortfolioSection/PortfolioSection";
 import { TotalSection } from "./TotalSection/TotalSection";
 
@@ -18,8 +19,8 @@ const ContentContainer = styled.div`
 `;
 const App: React.FC = () => {
 
-  const [assets, setAssets] = useState<AccountValue>(null);
-  const [prices, setPrices] = useState<Record<string, number>>(null);
+  const [account, setAccount] = useState<AccountValue | null>(null);
+  const [prices, setPrices] = useState<Record<string, number> | null>(null);
 
   async function loadData() {
 
@@ -28,7 +29,7 @@ const App: React.FC = () => {
       // handle
       return;
     }
-    setAssets(accountResponse.data.result.value);
+    setAccount(accountResponse.data.result.value);
     const priceResponse = await ApiSvc.getPrices();
     if (priceResponse.error) {
       // handle
@@ -44,14 +45,21 @@ const App: React.FC = () => {
   useEffect(() => {
     loadData();
   }, []);
-    return (
-      <Main className="app">
-        <ContentContainer>
-          <TotalSection availableCents={11000} lockedCents={9000} balanceCents={20000} />
-          <PortfolioSection prices={prices} assets={assets} />
-        </ContentContainer>
-      </Main>
-    );
+
+  if (!prices || !account) {
+    return <Main>Loading...</Main>
+  }
+
+  const {totalBalance, totalLocked, totalLiquid, denomData } = processAccount(account, prices);
+
+  return (
+    <Main className="app">
+      <ContentContainer>
+        <TotalSection availableDollars={totalLiquid} lockedDollars={totalLocked} balanceDollars={totalBalance} />
+        <PortfolioSection prices={prices} denomData={denomData} />
+      </ContentContainer>
+    </Main>
+  );
 }
 
 declare let module: Record<string, unknown>;

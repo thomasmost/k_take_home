@@ -4,9 +4,9 @@ import { toDollarsFromCents } from '../../services/currency.svc';
 
 interface ITotalSectionProps {
   // placeholder, remove or replace with real props
-  balanceCents: number;
-  availableCents: number;
-  lockedCents: number;
+  balanceDollars: number;
+  availableDollars: number;
+  lockedDollars: number;
 }
 
 const PillLayout = styled.div`
@@ -20,11 +20,11 @@ const PillLayout = styled.div`
 
 const SubTotals = styled.div`
   display: flex;
-  > div:first-child {
+  > div:first-of-type {
     padding-right: 30px;
     border-right: 1px solid lightgray;
   }
-  > div:last-child {
+  > div:last-of-type {
     padding-left: 30px;
   }
 `;
@@ -45,24 +45,24 @@ const Total = styled.div`
 `;
 
 export const TotalSection: React.FC<ITotalSectionProps> = ({
-  balanceCents,
-  availableCents,
-  lockedCents,
+  balanceDollars,
+  availableDollars,
+  lockedDollars,
 }) => {
   return (
     <PillLayout>
       <div>
         <Label>Total Balance</Label>
-        <Total>${toDollarsFromCents(balanceCents)}</Total>
+        <Total>${(balanceDollars).toFixed(2)}</Total>
       </div>
         <SubTotals>
         <div>
           <Label>Total Available</Label>
-          <SubTotal>${toDollarsFromCents(availableCents)}</SubTotal>
+          <SubTotal>${(availableDollars).toFixed(2)}</SubTotal>
         </div>
         <div>
           <Label>Total Locked</Label>
-          <SubTotal>${toDollarsFromCents(lockedCents)}</SubTotal>
+          <SubTotal>${(lockedDollars).toFixed(2)}</SubTotal>
         </div>
       </SubTotals>
     </PillLayout>

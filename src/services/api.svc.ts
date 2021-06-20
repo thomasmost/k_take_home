@@ -16,12 +16,12 @@ export abstract class ApiSvc {
     const response = await fetch(apiEndpoint);
     if (response.status === 401) {
       console.log('Auth error');
-      return;
+      return {error: new Error('Auth error')};
     }
     if (response.status === 500) {
       // Normally we would do some kind of UI error handling here
       console.log('Unexpected error')
-      return;
+      return {error: new Error('Unexpected error')};
     }
     const data = await response.json();
     return {

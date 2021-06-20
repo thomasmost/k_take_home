@@ -45,13 +45,13 @@ Array [
     <style
       dangerouslySetInnerHTML={
         Object {
-          "__html": ".css-1b534kz{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}.css-1b534kz >div:first-child{padding-right:30px;border-right:1px solid lightgray;}.css-1b534kz >div:last-child{padding-left:30px;}",
+          "__html": ".css-4upc23{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}.css-4upc23 >div:first-of-type{padding-right:30px;border-right:1px solid lightgray;}.css-4upc23 >div:last-of-type{padding-left:30px;}",
         }
       }
-      data-emotion="css 1b534kz"
+      data-emotion="css 4upc23"
     />
     <div
-      className="css-1b534kz"
+      className="css-4upc23"
     >
       <div>
         <label

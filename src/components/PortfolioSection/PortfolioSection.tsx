@@ -1,10 +1,9 @@
 import styled from '@emotion/styled';
 import * as React from 'react';
-import { getPriceUSD } from '../../services/currency.svc';
 
 interface IPortfolioSectionProps {
   // placeholder, remove or replace with real props
-  assets: AccountValue;
+  denomData: DenomInfo[];
   prices: Record<string, number>
 }
 
@@ -24,6 +23,7 @@ const PillLayout = styled.div`
   display: flex;
   padding: 20px;
   justify-content: start;
+  margin-bottom: 10px;
 `;
 
 
@@ -31,7 +31,7 @@ const HeaderLayout = styled.div`
   border: 1px solid transparent;
   border-radius: 10px;
   display: flex;
-  padding: 20px;
+  padding: 0 20px;
   display: flex;
   justify-content: start;
 `;
@@ -40,13 +40,13 @@ const AssetCol = styled.div`
   width: 200px;
 `;
 const TotalCol = styled.div`
-  width: 130px;
+  width: 180px;
 `;
 const AvailableCol = styled.div`
-  width: 64px;
+  width: 80px;
 `;
 const LockedCol = styled.div`
-  width: 64px;
+  width: 80px;
 `;
 
 const MainData = styled.div`
@@ -59,33 +59,35 @@ const SecondaryData = styled.div`
 `;
 
 // This could be a separate component, but for convenience I'll load it here
-const renderRows = (assets: CoinHolding[], prices: Record<string, number>) => assets.map((asset, i) => {
-  return (
-    <PillLayout key={i}>
-        <AssetCol>
-          <Label>
-            <MainData>{asset.denom.toUpperCase()}</MainData>
-            <SecondaryData>${getPriceUSD(asset.denom, prices)}</SecondaryData>
-          </Label>
-        </AssetCol>
-        <TotalCol>
-          <Label>
-            $120.00
-          </Label>
-        </TotalCol>
-        <AvailableCol>
-          <Label>
-            $49.20
-          </Label>
-        </AvailableCol>
-        <LockedCol>
-          <Label>
-            $68.60
-          </Label>
-        </LockedCol>
-    </PillLayout>
-  )
-})
+const renderRows = (denomData: DenomInfo[], prices: Record<string, number>) => {
+  return denomData.map((info, i) => {
+    const {denom, displayPrice, totalTokens, totalDollars, lockedDollars, liquidDollars} = info
+    return (
+      <PillLayout key={i}>
+          <AssetCol>
+            <MainData>{denom.toUpperCase()}</MainData>
+            <SecondaryData>${displayPrice}</SecondaryData>
+          </AssetCol>
+          <TotalCol>
+            <MainData>
+              {totalTokens} {denom.toUpperCase()}
+            </MainData>
+            <SecondaryData>${totalDollars.toFixed(2)}</SecondaryData>
+          </TotalCol>
+          <AvailableCol>
+            <MainData>
+              ${liquidDollars.toFixed(2)}
+            </MainData>
+          </AvailableCol>
+          <LockedCol>
+            <MainData>
+              ${lockedDollars.toFixed(2)}
+            </MainData>
+          </LockedCol>
+      </PillLayout>
+    )
+  })
+};
 
 
 const Container = styled.div`
@@ -93,11 +95,10 @@ const Container = styled.div`
 `;
 
 
-export const PortfolioSection: React.FC<IPortfolioSectionProps> = ({assets, prices}) => {
-  if (!assets || !prices) {
+export const PortfolioSection: React.FC<IPortfolioSectionProps> = ({denomData, prices}) => {
+  if (!denomData || !prices) {
     return <Container>Loading...</Container>
   }
-  const coins = assets.coins;
   return (
     <Container>
       
@@ -123,7 +124,7 @@ export const PortfolioSection: React.FC<IPortfolioSectionProps> = ({assets, pric
           </Label>
         </LockedCol>
       </HeaderLayout>
-      {renderRows(coins, prices)}
+      {renderRows(denomData, prices)}
     </Container>
   );
 };
