@@ -1,3 +1,6 @@
+// I don't love that these inconsistently return strings vs. numbers,
+// but luckily TypeScript and tests can help with that kind of thing
+
 export function toMajorUnits(amount_in_minor_units: number, exponent: number): string {
   return (amount_in_minor_units / Math.pow(10, exponent)).toFixed(exponent);
 }

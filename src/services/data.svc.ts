@@ -37,21 +37,22 @@ export function getDenomBreakdown(denom: string, account: AccountValue) {
 
 }
 
-
-function getLockedForDenom(start_time: number, original_vested_amount: number, vesting_periods_for_denom: {length: number, amount: number}[]) {
+export function getLockedForDenom(start_time: number, original_vested_amount: number, vesting_periods_for_denom: {length: number, amount: number}[]) {
   const now = Date.now() / 1000;
   let elapsed = start_time;
   let i = 0;
   let vested = 0;
-  while (elapsed <= now) {
+  while ((elapsed + vesting_periods_for_denom[i].length) <= now) {
     elapsed += vesting_periods_for_denom[i].length;
+
     vested += vesting_periods_for_denom[i].amount;
+    i++
   }
   return original_vested_amount - vested;
 }
 
 // Assumes only one delegated vesting per coin
-function getLiquidForDenom(coins_held: number, locked_amount: number, delegated_vesting?: DenomAmount) {
+export function getLiquidForDenom(coins_held: number, locked_amount: number, delegated_vesting?: DenomAmount) {
   let delegated_amount = 0;
   if (delegated_vesting) {
     delegated_amount = parseInt(delegated_vesting.amount, 10);

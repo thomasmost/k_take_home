@@ -1,12 +1,14 @@
 import styled from '@emotion/styled';
 import * as React from 'react';
+import { PortfolioRow } from '../PortfolioRow/PortfolioRow';
 
 interface IPortfolioSectionProps {
-  // placeholder, remove or replace with real props
   denomData: DenomInfo[];
   prices: Record<string, number>
 }
 
+// Some of these styled components are duped;
+// could be broken into a shared file
 
 const Label = styled.label`
   font-size: 11px;
@@ -60,33 +62,9 @@ const SecondaryData = styled.div`
 
 // This could be a separate component, but for convenience I'll load it here
 const renderRows = (denomData: DenomInfo[], prices: Record<string, number>) => {
-  return denomData.map((info, i) => {
-    const {denom, displayPrice, totalTokens, totalDollars, lockedDollars, liquidDollars} = info
-    return (
-      <PillLayout key={i}>
-          <AssetCol>
-            <MainData>{denom.toUpperCase()}</MainData>
-            <SecondaryData>${displayPrice}</SecondaryData>
-          </AssetCol>
-          <TotalCol>
-            <MainData>
-              {totalTokens} {denom.toUpperCase()}
-            </MainData>
-            <SecondaryData>${totalDollars.toFixed(2)}</SecondaryData>
-          </TotalCol>
-          <AvailableCol>
-            <MainData>
-              ${liquidDollars.toFixed(2)}
-            </MainData>
-          </AvailableCol>
-          <LockedCol>
-            <MainData>
-              ${lockedDollars.toFixed(2)}
-            </MainData>
-          </LockedCol>
-      </PillLayout>
-    )
-  })
+  return denomData.map((info, i) => (
+    <PortfolioRow denomInfo={info} key={i} />
+  ))
 };
 
 

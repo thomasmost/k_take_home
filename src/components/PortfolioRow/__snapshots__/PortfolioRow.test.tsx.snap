@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PortfolioSection renders 1`] = `
+Array [
+  <style
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": ".css-hh9nq6{background-color:white;border:1px solid lightgray;border-radius:10px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;padding:20px;-webkit-box-pack:start;-ms-flex-pack:start;-webkit-justify-content:start;justify-content:start;margin-bottom:10px;}",
+      }
+    }
+    data-emotion="css hh9nq6"
+  />,
+  <div
+    className="css-hh9nq6"
+  >
+    <style
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": ".css-1inivuc{width:200px;}",
+        }
+      }
+      data-emotion="css 1inivuc"
+    />
+    <div
+      className="css-1inivuc"
+    >
+      <style
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": ".css-mr3j8u{font-size:14px;}",
+          }
+        }
+        data-emotion="css mr3j8u"
+      />
+      <div
+        className="css-mr3j8u"
+      >
+        KAVA
+      </div>
+      <style
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": ".css-wx0j7l{margin-top:4px;font-size:10px;color:gray;}",
+          }
+        }
+        data-emotion="css wx0j7l"
+      />
+      <div
+        className="css-wx0j7l"
+      >
+        $
+        4.06
+      </div>
+    </div>
+    <style
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": ".css-1rfg5hd{width:180px;}",
+        }
+      }
+      data-emotion="css 1rfg5hd"
+    />
+    <div
+      className="css-1rfg5hd"
+    >
+      <div
+        className="css-mr3j8u"
+      >
+        35.862256
+         
+        KAVA
+      </div>
+      <div
+        className="css-wx0j7l"
+      >
+        $
+        145.49
+      </div>
+    </div>
+    <style
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": ".css-hscz2w{width:80px;}",
+        }
+      }
+      data-emotion="css hscz2w"
+    />
+    <div
+      className="css-hscz2w"
+    >
+      <div
+        className="css-mr3j8u"
+      >
+        $
+        99.05
+      </div>
+    </div>
+    <div
+      className="css-hscz2w"
+    >
+      <div
+        className="css-mr3j8u"
+      >
+        $
+        46.44
+      </div>
+    </div>
+  </div>,
+]
+`;
