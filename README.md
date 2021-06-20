@@ -7,7 +7,7 @@
 - CRA wasn't working, so I'm using this template
 - CSS reset so I have a clean slate
 - Using Inter, font from Kava website
-- Tests aren't working but it looks like a config thing, not gonna spend time on it
+- ~Tests aren't working but it looks like a config thing, not gonna spend time on it~ NVM
 - Font sizes would normally be something I'd want to have a conversation about but for this exercise I'm just pixel-pushing
 
 ## Dependencies
