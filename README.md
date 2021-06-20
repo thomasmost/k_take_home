@@ -2,6 +2,8 @@
 
 > Minimal UI for viewing coins
 
+**Note: I haven't tested the prod build, so just run the dev server**
+
 ## Notes as I go
 
 - CRA wasn't working, so I'm using this template
@@ -25,23 +27,16 @@
 ## Installation
 
 1. Clone/download repo
-2. `yarn install` (or `npm install` for npm)
+2. `npm install`
 
 ## Usage
 
 **Development**
 
-`yarn run start-dev`
+`npm run start-dev`
 
 - Build app continuously (HMR enabled)
 - App served @ `http://localhost:8080`
-
-**Production**
-
-`yarn run start-prod`
-
-- Build app once (HMR disabled) to `/dist/`
-- App served @ `http://localhost:3000`
 
 ---
 
@@ -59,9 +54,3 @@
 
 **Note**: replace `yarn` with `npm` in `package.json` if you use npm.
 
-## See also
-
-- [React Webpack Babel Starter](https://github.com/vikpe/react-webpack-babel-starter)
-- [Snowpack](https://github.com/snowpackjs/snowpack)
-- [Create React App](https://github.com/facebook/create-react-app)
-- [Isomorphic Webapp Starter](https://github.com/vikpe/isomorphic-webapp-starter)
