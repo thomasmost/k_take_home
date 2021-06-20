@@ -1,6 +1,6 @@
 import { toMajorUnits, toMajorUnitsFromDenom } from "./currency.svc";
 
-test('PortfolioSection renders', () => {
+test('toMajorUnits', () => {
   const majorUnits = toMajorUnits(14532, 3);
 
   expect(majorUnits).toBe('14.532');

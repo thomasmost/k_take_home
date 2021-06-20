@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PortfolioSection renders 1`] = `
+exports[`PortfolioRow renders 1`] = `
 Array [
   <style
     dangerouslySetInnerHTML={

@@ -12,7 +12,7 @@ const denomInfo= {
   lockedDollars: 46.44
 }
 
-test('PortfolioSection renders', () => {
+test('PortfolioRow renders', () => {
   const component = renderer.create(
     <PortfolioRow denomInfo={denomInfo} />
   );
